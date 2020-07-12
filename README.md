@@ -1,2 +1,6 @@
-# estudo_django22
-Estudo do Django
+# Estudo
+
+## App Login
+- Pendencias
+* Formulario
+* Models (teste p/ login)
