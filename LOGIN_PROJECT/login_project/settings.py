@@ -121,11 +121,27 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
-STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, "static"),
-    'C:\\Users\\caio_jones\\Documents\\django22\\estudos\\estudo_django22\\LOGIN_PROJECT\\login_project\\static',
-    'C:\\Users\\caio_jones\\Documents\\django22\\estudos\\estudo_django22\\LOGIN_PROJECT\\login\\static',
-]
+
+import platform
+
+if platform.system() == 'Windows':
+
+    STATICFILES_DIRS = [
+        os.path.join(BASE_DIR, "static"),
+        'C:\\Users\\caio_jones\\Documents\\django22\\estudos\\estudo_django22\\LOGIN_PROJECT\\login_project\\static',
+        'C:\\Users\\caio_jones\\Documents\\django22\\estudos\\estudo_django22\\LOGIN_PROJECT\\login\\static',
+    ]
+
+elif platform.system() == 'Linux':
+
+    STATICFILES_DIRS = [
+        os.path.join(BASE_DIR, "static"),
+        '/home/daniel_jones/Documentos/Cursos/django/django22/estudo_django22/LOGIN_PROJECT/login_project/static/',
+        '/home/daniel_jones/Documentos/Cursos/django/django22/estudo_django22/LOGIN_PROJECT/login/static/',
+    ]
+
+else:
+    print('Impossivel detectar O.S')
 
 LOGIN_URL = '/login/'
 
