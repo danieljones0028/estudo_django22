@@ -55,7 +55,7 @@ ROOT_URLCONF = 'login_project.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': ['templates'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -125,3 +125,7 @@ STATICFILES_DIRS = [
     'C:\\Users\\caio_jones\\Documents\\django22\\estudos\\estudo_django22\\LOGIN_PROJECT\\login_project\\static',
     'C:\\Users\\caio_jones\\Documents\\django22\\estudos\\estudo_django22\\LOGIN_PROJECT\\login\\static',
 ]
+
+LOGIN_URL = '/login/'
+
+LOGIN_REDIRECT_URL = 'loginhome'
