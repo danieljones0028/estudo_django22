@@ -1,12 +1,24 @@
+from django.http import HttpResponseRedirect
 from django.shortcuts import render
-from django.http import HttpResponse
+
+# https://docs.djangoproject.com/pt-br/2.2/topics/forms/
+from .forms import LoginForm
 
 # Create your views here.
 def login_page(request):
-    return render(request, 'index_login.html')
+    # if this is a POST request we need to process the form data
+    if request.method == 'POST':
+        # create a form instance and populate it with data from the request:
+        form = LoginForm(request.POST)
+        # check whether it's valid:
+        if form.is_valid():
+            # process the data in form.cleaned_data as required
+            # ...
+            # redirect to a new URL:
+            return HttpResponseRedirect('/home/')
 
-def login_form(request):
-    return render(request, 'login_page.html')
+    # if a GET (or any other method) we'll create a blank form
+    else:
+        form = LoginForm()
 
-def login_home(request):
-    return render(request, 'index_login.html')
+    return render(request, 'index_login.html', {'form': form})
